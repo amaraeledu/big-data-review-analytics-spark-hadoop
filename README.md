@@ -70,6 +70,14 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 
 **Random Forest was selected** as the final model — it achieved the stronger precision/recall balance and offered feature importances. Evaluation used a confusion matrix, accuracy, precision/recall, and ROC/AUC (**AUC = 0.90**, well above the random-guess baseline). Metadata features — **review length** and **star rating** — were the most predictive signals, more so than deep text features, a useful finding for teams wanting a lightweight, high-level sentiment signal without full text analysis.
 
+![Confusion matrix](images/confusion_matrix.png)
+
+![ROC curve (AUC = 0.90)](images/roc_curve.png)
+
+![Feature importance (Random Forest)](images/feature_importance.png)
+
+![Precision-recall curve](images/precision_recall_curve.png)
+
 ## Business Insights
 
 - Automated sentiment classification lets a business monitor customer satisfaction at scale, in near real time.
@@ -85,3 +93,4 @@ Docker · Hadoop (HDFS, MapReduce Streaming) · Apache Spark & Spark MLlib · Hi
 - [`spark_agg_reviews.py`](spark_agg_reviews.py) — Spark aggregation job (review count / avg rating by category)
 - [`mapper.py`](mapper.py), [`reducer.py`](reducer.py) — Hadoop Streaming MapReduce equivalent
 - [`sentiment_classification.py`](sentiment_classification.py) — Spark MLlib sentiment classification pipeline
+- [`images/`](images) — model evaluation charts referenced above
